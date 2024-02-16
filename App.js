@@ -4,7 +4,13 @@ import { StyleSheet, Text, View } from "react-native";
 import CategoryScreen from "./screens/CategoryScreen";
 
 export default function App() {
-  return <CategoryScreen />;
+  return (
+    <>
+      <StatusBar style="light">
+        <CategoryScreen />
+      </StatusBar>
+    </>
+  );
   Y;
 }
 

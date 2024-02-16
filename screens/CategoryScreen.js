@@ -4,7 +4,12 @@ import { CATEGORIES } from "../data/dummy-data";
 import CateogryItemTileScreen from "../components/CateogryItemTileScreen";
 
 function CategoryItemRenderScreen(itemData) {
-  return <CateogryItemTileScreen title={itemData.item.title} />;
+  return (
+    <CateogryItemTileScreen
+      title={itemData.item.title}
+      color={itemData.item.color}
+    />
+  );
 }
 
 function CategoryScreen() {
@@ -13,8 +18,9 @@ function CategoryScreen() {
       data={CATEGORIES}
       keyExtractor={(item) => item.id}
       renderItem={CategoryItemRenderScreen}
+      numColumns={2}
+      key="categories"
     />
   );
 }
-
 export default CategoryScreen;
