@@ -18,8 +18,8 @@ function CategoryScreen() {
       data={CATEGORIES}
       keyExtractor={(item) => item.id}
       renderItem={CategoryItemRenderScreen}
-      numColumns={2}
       key="categories"
+      numColumns={2}
     />
   );
 }
