@@ -6,7 +6,12 @@ import CateogryItemTileScreen from "../components/CateogryItemTileScreen";
 function CategoryScreen({ navigation }) {
   function CategoryItemRenderScreen(itemData) {
     function navigateToMealOverViewScreen() {
-      navigation.navigate("mealOverView");
+      navigation.navigate(
+        "mealOverView",
+        (params = {
+          categoryId: itemData.item.id,
+        })
+      );
     }
 
     return (
