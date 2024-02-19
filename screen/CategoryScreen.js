@@ -8,11 +8,15 @@ function CategoryItemRenderScreen(itemData) {
     <CateogryItemTileScreen
       title={itemData.item.title}
       color={itemData.item.color}
+      onPress={navigateToMealOverViewScreen}
     />
   );
 }
 
-function CategoryScreen() {
+function CategoryScreen({ navigation }) {
+  function navigateToMealOverViewScreen() {
+    navigation.navigate("mealOverView");
+  }
   return (
     <FlatList
       data={CATEGORIES}
