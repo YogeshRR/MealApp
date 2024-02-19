@@ -7,6 +7,7 @@ function CategoryItemRenderScreen({ title, color, onPress }) {
           styles.button,
           pressed ? styles.buttonPressed : null,
         ]}
+        onPress={onPress}
         android_ripple={{ color: "#ccc" }}
       >
         <View style={[styles.innerContainer, { backgroundColor: color }]}>

@@ -3,20 +3,21 @@ import { CATEGORIES } from "../data/dummy-data";
 
 import CateogryItemTileScreen from "../components/CateogryItemTileScreen";
 
-function CategoryItemRenderScreen(itemData) {
-  return (
-    <CateogryItemTileScreen
-      title={itemData.item.title}
-      color={itemData.item.color}
-      onPress={navigateToMealOverViewScreen}
-    />
-  );
-}
-
 function CategoryScreen({ navigation }) {
-  function navigateToMealOverViewScreen() {
-    navigation.navigate("mealOverView");
+  function CategoryItemRenderScreen(itemData) {
+    function navigateToMealOverViewScreen() {
+      navigation.navigate("mealOverView");
+    }
+
+    return (
+      <CateogryItemTileScreen
+        title={itemData.item.title}
+        color={itemData.item.color}
+        onPress={navigateToMealOverViewScreen}
+      />
+    );
   }
+
   return (
     <FlatList
       data={CATEGORIES}

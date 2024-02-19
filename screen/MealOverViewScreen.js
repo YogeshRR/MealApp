@@ -4,12 +4,13 @@ import { StyleSheet } from "react-native";
 
 function MealOverViewScreen() {
   return (
-    <View style={styles.container}>
-      <Text>I am here</Text>
+    <View>
+      <Text>MealsOverView</Text>
     </View>
   );
 }
-export default MealOverViewScreen();
+
+export default MealOverViewScreen;
 
 const styles = StyleSheet.create({
   container: {
