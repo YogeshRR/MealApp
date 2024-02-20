@@ -8,6 +8,7 @@ import {
 } from "react-native";
 
 import { useNavigation } from "@react-navigation/native";
+import MealDetail from "./MealDetail";
 
 function MealItemScreen({
   title,
@@ -37,11 +38,11 @@ function MealItemScreen({
           <View>
             <Image source={{ uri: imageURL }} style={styles.imageStyle} />
             <Text style={styles.titleStyle}>{title}</Text>
-            <View style={styles.textContainer}>
-              <Text style={styles.textStyle}>{duration} m </Text>
-              <Text style={styles.textStyle}>{complexity}</Text>
-              <Text style={styles.textStyle}>{affordability}</Text>
-            </View>
+            <MealDetail
+              affordability={affordability}
+              complexity={complexity}
+              duration={duration}
+            />
           </View>
         </View>
       </Pressable>
@@ -75,19 +76,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 18,
     textAlign: "center",
-  },
-
-  textContainer: {
-    flex: 1,
-    flexDirection: "row",
-    textAlign: "center",
-    justifyContent: "center",
-  },
-  textStyle: {
-    margin: 16,
-    textAlign: "center",
-    fontWeight: "bold",
-    fontSize: 15,
   },
   buttonPressed: {
     opacity: 0.5,
