@@ -10,7 +10,15 @@ function MealOverViewScreen({ route }) {
     return mealItem.categoryIds.indexOf(categoryId) >= 0;
   });
   function renderMealItemScreen(itemData) {
-    return <MealItemScreen title={itemData.item.title} />;
+    const item = itemData.item;
+    const mealItemProps = {
+      title: item.title,
+      imageURL: item.imageUrl,
+      duration: item.duration,
+      complexity: item.complexity,
+      affordability: item.affordability,
+    };
+    return <MealItemScreen {...mealItemProps} />;
   }
   return (
     <View>
