@@ -1,16 +1,29 @@
 import { Pressable, StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { useContext } from "react";
+import { FavoritesContext } from "../store/context/favorite-context";
 
-function HeaderButton() {
+function HeaderButton({ mealId }) {
+  const favoriteContext = useContext(FavoritesContext);
+
+  const mealIsFavorite = favoriteContext.ids.includes(mealId);
   function likeButtonPressed() {
-    console.log("pressed");
+    if (mealIsFavorite) {
+      favoriteContext.removeFavorite(mealId);
+    } else {
+      favoriteContext.addFavorite(mealId);
+    }
   }
   return (
     <Pressable
       onPress={likeButtonPressed}
       style={({ pressed }) => pressed && styles.pressable}
     >
-      <Ionicons name="star" size={24} color={"white"} />
+      <Ionicons
+        name={mealIsFavorite ? "star" : "star-outline"}
+        size={24}
+        color={"white"}
+      />
     </Pressable>
   );
 }
