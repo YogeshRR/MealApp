@@ -4,7 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { Ionicons } from "@expo/vector-icons";
-import { Provider } from "react";
+import { Provider } from "react-redux";
 
 import CategoryScreen from "./screen/CategoryScreen";
 import MealOverViewScreen from "./screen/MealOverViewScreen";

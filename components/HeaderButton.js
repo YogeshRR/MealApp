@@ -1,17 +1,24 @@
 import { Pressable, StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { useContext } from "react";
-import { FavoritesContext } from "../store/context/favorite-context";
+//import { useContext } from "react";
+//import { FavoritesContext } from "../store/context/favorite-context";
+import { useSelector, useDispatch } from "react-redux";
+import { addFavorite, removeFavorite } from "../store/redux/favoriteMeals";
 
 function HeaderButton({ mealId }) {
-  const favoriteContext = useContext(FavoritesContext);
+  // const favoriteContext = useContext(FavoritesContext);
 
-  const mealIsFavorite = favoriteContext.ids.includes(mealId);
+  const favoriteMealIds = useSelector((state) => state.favoriteMeals.ids);
+  const dispatch = useDispatch();
+
+  const mealIsFavorite = favoriteMealIds.includes(mealId);
   function likeButtonPressed() {
     if (mealIsFavorite) {
-      favoriteContext.removeFavorite(mealId);
+      dispatch(removeFavorite({ id: mealId }));
+      //favoriteContext.removeFavorite(mealId);
     } else {
-      favoriteContext.addFavorite(mealId);
+      dispatch(addFavorite({ id: mealId }));
+      //favoriteContext.addFavorite(mealId);
     }
   }
   return (
