@@ -4,6 +4,7 @@ import { MEALS, CATEGORIES } from "../data/dummy-data";
 import { StyleSheet } from "react-native";
 
 import MealItemScreen from "../components/MealItemScreen";
+import MealsList from "../components/MealList/MealsList";
 
 function MealOverViewScreen({ route, navigation }) {
   const categoryId = route.params.categoryId;
@@ -21,7 +22,9 @@ function MealOverViewScreen({ route, navigation }) {
     });
   }, [categoryId, navigation]);
 
-  function renderMealItemScreen(itemData) {
+  return <MealsList displayedMealItems={displayedMealItems} />;
+
+  /*function renderMealItemScreen(itemData) {
     const item = itemData.item;
     const mealItemProps = {
       id: item.id,
@@ -40,15 +43,7 @@ function MealOverViewScreen({ route, navigation }) {
         keyExtractor={(item) => item.id}
         renderItem={renderMealItemScreen}
       />
-    </View>
-  );
+    </View> */
 }
 
 export default MealOverViewScreen;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 16,
-  },
-});
